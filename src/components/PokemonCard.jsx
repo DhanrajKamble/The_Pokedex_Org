@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 
-const PokemonCard = ({ pokemon: { name, url } }) => {
+const PokemonCard = ({ pokemon: { name, url }, onClick }) => {
     const [image, setImage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -24,7 +24,7 @@ const PokemonCard = ({ pokemon: { name, url } }) => {
     }, [url]);
 
     return (
-        <div className="poke-card">
+        <div className="poke-card" onClick={onClick}>
             <h1 className="pokemon-name">{name}</h1>
             {
                 isLoading ?
